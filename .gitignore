@@ -21,3 +21,8 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# large file
+/src/assets/video
+/src/assets/video/factory.mp4
+/src/assets/video/robot.mp4
