@@ -1,0 +1,169 @@
+$number-font: 'VoyagerGrotesque', 'Microsoft YaHei', 'PingFang SC', serif;
+
+.discern-content-gas {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .gas-value {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .discern-content-table {
+    flex: 1;
+  }
+
+  .gas-item {
+    padding: 15px;
+    /*如果高度小于1080的话*/
+    @media screen and (max-height: 1060px) {
+      padding: 5px 15px;
+    }
+
+    .gas-item-circle {
+      width: 80px;
+      height: 80px;
+      position: relative;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      .circle-text {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p:first-child {
+          font-size: 12px;
+          color: var(--color-circle-unit);
+          opacity: 0.5;
+          padding-bottom: 4px;
+        }
+
+        p:last-child {
+          color: var(--color-circle-value);
+          font-family: $number-font;
+          font-size: 20px;
+
+          .text-after {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .circle-rotate-outer {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        i {
+          display: inline-block;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background-color: #7f9ef3;
+          position: absolute;
+          top: 25px;
+          left: 0;
+        }
+      }
+
+      .circle-rotate-inner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 56px;
+        height: 56px;
+
+        i {
+          display: inline-block;
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background-color: #d2e0fa;
+          position: absolute;
+          top: 36px;
+          left: 0;
+        }
+      }
+    }
+
+    .progress-item-name {
+      font-size: 12px;
+      color: var(--color-default);
+      padding-top: 5px;
+      text-align: center;
+    }
+  }
+
+  &.one-item, &.tow-item {
+    .gas-value {
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gas-item-circle {
+      width: 122px !important;
+      height: 122px !important;
+
+      .circle-text {
+        p {
+          &:first-child {
+            font-size: 14px;
+          }
+
+          &:last-child {
+            font-size: 30px;
+          }
+        }
+      }
+
+      .circle-rotate-outer {
+        i {
+          width: 9px;
+          height: 9px;
+          top: 38px;
+        }
+      }
+
+      .circle-rotate-inner {
+        i {
+          width: 5px;
+          height: 5px;
+          top: 60px;
+        }
+      }
+    }
+
+    .progress-item-name {
+      font-size: 20px;
+    }
+  }
+
+  &.three-item {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.four-item {
+    .gas-item {
+      width: 50%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

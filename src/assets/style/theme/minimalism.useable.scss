@@ -1,0 +1,1761 @@
+/*  minimalism  */
+:root {
+  /* 背景色 */
+  --bgc-theme: #eee; // 主题背景色
+  --bgc-info-title: #D2E0FA; // 机器人、天气信息标题背景色
+  --bgc-popover-item-hover: var(--bgc-info-title); // 弹出框-项-悬停背景色
+  --bgc-popover-even-item: rgba(210, 224, 250, 0.3); // 弹出框偶数项背景色
+  --bgc-popover-item-tag: var(--bgc-info-title); // 弹出框项标签背景色
+  --bgc-popover: rgba(242, 242, 242, 0.9); // 主题弹出框背景色
+  --bgc-theme-item-active: var(--color-title); // 主题列表项激活背景色
+  --bgc-task-backtracking-item-warning: #fff; // 任务回溯项告警次数背景色
+  --bgc-task-backtracking-item-hover: var(--bgc-info-title); // 任务回溯项悬停背景色
+  --bgc-scrollbar-thumb: rgba(30, 32, 136, 0.4); // 滚动条滑块颜色
+  --bgc-scrollbar-thumb-hover: var(--color-title); // 滚动条滑块悬停颜色
+  --bgc-scrollbar-track: #f2f2f2; // 滚动条滚动槽背景色
+  --bgc-title-line: #D2E0FA; //一级页面标题横线背景色
+  --bgc-error: rgba(230, 0, 18, 0.3); // 错误背景色/一级预警
+
+
+  /* 颜色 */
+  --color-default: #131629; // 默认字体颜色
+  --color-title: #1E2088; // 标题字体颜色
+  --color-normal: #06AED5; // 正常字体颜色
+  --color-warning: #EA580C; // 告警字体颜色
+  --color-error: #E60012; // 错误字体颜色
+  --color-mild-warning: #FDCA40; // 轻微预警/三级预警
+  --color-user-name: var(--color-title); // 用户名文字颜色
+  --color-date-time: var(--color-title); // 日期、时间文字颜色
+  --color-avatar-border: var(--color-title); // 用户头像边框色
+  --color-info-label: #213BAF; // 机器人、天气信息项标题文字颜色
+  --color-info-title: var(--color-title); // 机器人、天气信息标题字体颜色
+  --color-tabs: #fff; // 选项卡文字颜色
+  --color-popover-border: #1F36A1; // 弹出框边框颜色
+  --color-popover-item-tag-borer: rgba(30, 32, 136, 0.5); // 弹出框项标签边框颜色
+  --color-search: var(--color-title); // 搜索框文字颜色
+  --color-navbar-arrow: var(--color-error); // 面包屑箭头颜色
+  --color-circle-unit: rgba(6, 174, 213, 0.5); // 巡检项圆环内单位文字颜色
+  --color-circle-value: var(--color-title); // 巡检项圆环内数值文字颜色
+  --color-task-backtracking-item-info: var(--color-default); // 任务回溯项信息文字颜色
+  --color-pagination-arrow: var(--color-title); // 分页箭头颜色
+  --color-pagination-number: rgba(30, 32, 136, 0.5); // 分页页码颜色
+  --color-scrollbar-track-border: #2680EB; // 滚动条滑条边框颜色
+  --color-info-company: rgba(30, 32, 136, 0.3); // 顶部工厂名称文字颜色
+  --color-popover-font: var(--color-title); // 弹出层文字颜色
+  --color-popover-font-active: rgba(30, 32, 136, 0.5); // 弹出框项激活文字颜色
+  --color-popover-message-hover: rgba(30, 32, 136, 0.5); // 弹出框-消息通知-悬停文字颜色
+  --color-border: var(--color-title); // 列表项边框颜色
+  --color-border-bottom: rgba(30, 32, 136, 0.5); // 列表项信息底部边框颜色
+
+
+  /* 背景图 */
+  --bg-input-border: url('~@/assets/images/theme/minimalism/robotSituation/bg-input-border.png'); // 背景图-输入框-边框
+  --bg-top-bar: url('~@/assets/images/theme/minimalism/robotSituation/bg-top-bar.png'); // 背景图-顶部-bar
+  --bg-tab: url('~@/assets/images/theme/minimalism/common/bg-tab.png'); // 背景图-选项卡
+  --bg-breadcrumb: url('~@/assets/images/theme/minimalism/robotSituation/bg-breadcrumb.png'); // 背景图-面包屑
+  --bg-sevnce-logo: url('~@/assets/images/theme/minimalism/robotSituation/bg-sevnce-logo.png'); // 背景图-七腾logo
+  --bg-empty-outer: url('~@/assets/images/theme/minimalism/robotSituation/empty-outer.png'); // 空状态外层
+}
+
+#app {
+  .situation-platform-name {
+    a {
+      color: #E60012;
+    }
+  }
+
+  .top-bar-left i, .top-bar-right i {
+    background-position-y: -34px;
+  }
+
+  .top-bar-right {
+    .top-bar-ai {
+      background-image: url("~@/assets/images/common/icon-ai-minimalism.gif");
+    }
+  }
+
+  .center-operating i, .item-triangle {
+    background-position-y: -46px;
+  }
+
+  .top-bar-dateTime {
+    i {
+      background-position-y: -26px;
+    }
+  }
+
+  .search-btn {
+    i {
+      background-position-y: -20px;
+    }
+  }
+
+  .situation-content {
+    background-image: none;
+  }
+
+  .tab-item {
+    &.active {
+      opacity: 1 !important;
+
+      span {
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  .theme-popover {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .message-popover {
+    .message-operating {
+      p {
+        color: #213BAF;
+
+        &:last-child {
+          color: #2680EB;
+
+          &:hover {
+            color: rgba(38, 128, 235, 0.5);
+          }
+        }
+      }
+    }
+
+    .message-tabs {
+      background-color: #D2E0FA;
+      border-radius: 50px;
+
+      .tabs-item {
+        .item-name {
+          color: #131629;
+        }
+
+        &.active {
+          .item-name {
+            color: #213BAF;
+          }
+        }
+      }
+
+      .tab-slider {
+        div {
+          width: 60px;
+          border-radius: 50px;
+          background-color: rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+
+    .list-more {
+      p {
+        color: #2680EB;
+
+        &:hover {
+          color: rgba(38, 128, 235, 0.5);
+        }
+      }
+    }
+  }
+
+  .dialog-message {
+    .el-dialog__body {
+      color: var(--color-title);
+
+      .dialog-title {
+        background-color: #D2E0FA;
+        padding: 0 16px;
+
+        .title-search {
+          border-radius: 6px;
+          background-color: #fff;
+
+          input {
+            color: var(--color-title);
+            background-color: #fff;
+
+            &::-webkit-input-placeholder { /* WebKit browsers */
+              color: rgba(30, 32, 136, 0.2);
+            }
+
+            &::-moz-placeholder { /* Mozilla Firefox 19+ */
+              color: rgba(30, 32, 136, 0.2);
+            }
+
+            &:-ms-input-placeholder { /* Internet Explorer 10+ */
+              color: rgba(30, 32, 136, 0.2);
+            }
+          }
+
+          button {
+            background-color: rgba(210, 224, 250, 0.5);
+            transition: background-color .3s;
+            color: var(--color-title);
+
+            &:hover {
+              background-color: rgba(210, 224, 250, 0.8);
+              transition: background-color .3s;
+            }
+
+            &:active {
+              background-color: rgba(173, 197, 238, 0.8);
+              transition: background-color .3s;
+            }
+          }
+        }
+      }
+
+      .dialog-content {
+        .content-tabs {
+          background-color: rgba(210, 224, 250, 0.5);
+
+          .tabs-item {
+            color: var(--color-title);
+            transition: color .3s;
+
+            &:first-child {
+              i {
+                background-image: url("~@/assets/images/theme/minimalism/common/icon-business.png");
+              }
+            }
+
+            &:nth-child(2) {
+              i {
+                background-image: url("~@/assets/images/theme/minimalism/common/icon-robot.png");
+              }
+            }
+
+            &:nth-child(3) {
+              i {
+                background-image: url("~@/assets/images/theme/minimalism/common/icon-system.png");
+              }
+            }
+
+            &.active, &.hover {
+              color: #D2E0FA;
+
+              &:first-child {
+                i {
+                  background-image: url("~@/assets/images/theme/minimalism/common/icon-business-active.png");
+                }
+              }
+
+              &:nth-child(2) {
+                i {
+                  background-image: url("~@/assets/images/theme/minimalism/common/icon-robot-active.png");
+                }
+              }
+
+              &:nth-child(3) {
+                i {
+                  background-image: url("~@/assets/images/theme/minimalism/common/icon-system-active.png");
+                }
+              }
+            }
+          }
+
+          .tabs-slider {
+            background: var(--color-title);
+          }
+        }
+
+        .list-filter {
+          border-bottom: 1px solid var(--color-title);
+
+          .filter-box {
+            .filter-item {
+              .el-button {
+                &:disabled {
+                  color: rgba(30, 32, 136, 0.3);
+                }
+              }
+
+              .el-tag {
+                background-color: #fff;
+                color: var(--color-default);
+
+                .el-tag__close {
+                  color: #ccc;
+
+                  &:hover {
+                    color: #2680eb;
+                  }
+                }
+              }
+            }
+
+            .filter-btn {
+              background-image: url("~@/assets/images/theme/minimalism/common/icon-filter.png");
+
+              &:hover {
+                background-image: url("~@/assets/images/theme/minimalism/common/icon-filter-active.png");
+              }
+            }
+          }
+
+          .filter-operating {
+            p {
+              &:hover {
+                color: rgba(30, 32, 136, 0.5);
+                transition: color .3s;
+              }
+            }
+          }
+        }
+
+        .content-list {
+          .list-box {
+            .list-content {
+              color: var(--color-default);
+            }
+          }
+        }
+      }
+
+      .popover {
+        color: #131629;
+        background-color: #fff;
+        border: 0;
+
+        .filter-popover {
+          & > div {
+            .el-input {
+              &:not(.is-disabled) {
+                .el-input__inner {
+                  border-color: var(--color-default);
+
+                  &:hover {
+                    border-color: var(--color-default);
+                  }
+
+                  &:focus {
+                    border-color: #2680eb;
+                  }
+                }
+              }
+            }
+          }
+
+          .filter-select {
+            .el-select {
+              .el-input {
+                .el-input__inner {
+                  color: var(--color-default);
+
+                  &:focus {
+                    border-color: #2680eb;
+                  }
+
+                  &::-webkit-input-placeholder {
+                    color: var(--color-default);
+                  }
+                }
+
+                .el-select__caret {
+                  color: var(--color-default);
+                }
+              }
+            }
+          }
+
+          .filter-checkbox {
+            .el-checkbox {
+              color: var(--color-default);
+
+              .el-checkbox__input {
+                .el-checkbox__inner {
+                  border-color: var(--color-title);
+
+                  &::after {
+                    border-color: var(--color-default);
+                  }
+                }
+
+                &.is-checked + .el-checkbox__label {
+                  color: var(--color-default) !important;
+                }
+              }
+            }
+
+            .selectAll {
+              &:hover {
+                color: #2680EB;
+              }
+            }
+          }
+
+          .filter-radio {
+            .el-radio {
+              &:not(.is-disabled) {
+                .el-radio__input {
+                  .el-radio__inner {
+                    border-color: var(--color-default);
+
+                    &::after {
+                      background-color: var(--color-default);
+                    }
+
+                    &.is-checked + .el-radio__label {
+                      color: var(--color-default);
+                    }
+                  }
+                }
+
+                .el-radio__label {
+                  color: var(--color-default);
+                }
+              }
+            }
+          }
+
+          .filter-date {
+            .el-input__inner {
+              border-radius: 6px;
+
+              &:not(.is-disabled) {
+                border-color: #ccc;
+
+                .el-range-input {
+                  color: var(--color-default);
+
+                  &::-webkit-input-placeholder {
+                    color: var(--color-default);
+                  }
+                }
+
+                .el-input__icon {
+                  color: var(--color-title);
+                }
+
+                &.is-active,
+                &.is-active:hover {
+                  border-color: #2680EB;
+                }
+              }
+            }
+          }
+
+          .filter-operating {
+            & > span {
+              color: rgba(0, 0, 0, 0.5);
+            }
+
+            button {
+              color: #2680EB;
+
+              &:not(:disabled) {
+                &:hover {
+                  color: rgba(38, 128, 235, 0.5);
+
+                  &.el-button--default {
+                    color: #2680EB;
+                    border-color: #2680EB;
+                  }
+                }
+
+                &.el-button--default {
+                  color: #131629;
+                  border-color: #ccc;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .top-status, .detail-status {
+      color: #fff !important;
+    }
+
+    .bottom-right-title, .details-title {
+      i {
+        &.business {
+          background-image: url("~@/assets/images/theme/minimalism/common/icon-business.png");
+        }
+
+        &.robot {
+          background-image: url("~@/assets/images/theme/minimalism/common/icon-robot.png");
+        }
+
+        &.system {
+          background-image: url("~@/assets/images/theme/minimalism/common/icon-system.png");
+        }
+      }
+    }
+
+    .content-list {
+      .list-item {
+        border-bottom: 1px solid #ccc;
+
+        &:hover {
+          .bottom-right-title {
+            i {
+              transition: opacity 0.3s;
+              opacity: 0.5;
+            }
+          }
+        }
+
+        .item-bottom {
+          .bottom-left {
+            background-color: #fff;
+            border-radius: 6px;
+          }
+        }
+      }
+    }
+
+    .content-details {
+      .details-title {
+        background-color: #f2f2f2;
+      }
+
+      .details-container {
+        .container-divider {
+          &::after {
+            background-color: rgba(30, 32, 136, 0.5);
+          }
+        }
+
+        .container-btn {
+          .btn-submission {
+            border-radius: 6px;
+            background-color: #fff;
+
+            &:hover {
+              border-color: #2680EB;
+              color: #2680EB;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .popover {
+    font-weight: 400;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .title-popover {
+    background-color: #eee;
+    border-radius: 0;
+  }
+
+  .userInfo-popover {
+    div {
+      font-weight: bold;
+    }
+  }
+
+  .chart-operating {
+    padding-top: 10px;
+
+    .el-select {
+      .el-input__inner {
+        background-color: #D2E0FA;
+        border: 0 !important;
+        border-radius: 2px;
+      }
+
+      .el-input__suffix {
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .content-left {
+    background-color: #F2F2F2;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+
+    .left-title {
+      width: 100%;
+      height: 34px;
+      line-height: 34px;
+      padding: 0 16px;
+      background-color: var(--bgc-info-title);
+      box-sizing: border-box;
+      text-align: initial;
+    }
+
+    .filter-btn-item, .left-area > div {
+      background-color: #E8EDF5;
+      border-radius: 2px;
+      border: 1px solid var(--bgc-info-title);
+
+      &:hover, &.active {
+        background-color: #D2E0FA !important;
+        transition: background 0.3s;
+      }
+    }
+
+    .left-search {
+      border-color: var(--color-title);
+
+      input {
+        background-image: url('~@/assets/images/theme/minimalism/projectSituation/bg-search.png');
+      }
+
+      .search-btn {
+        background-color: var(--color-title);
+      }
+    }
+
+    .left-list {
+      padding-bottom: 28px;
+
+      .task-item {
+        border-radius: 6px;
+        background: #E8EDF5;
+
+        .info-warningFrequency {
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+
+  .content-center {
+    .center-box-item, .center-item {
+      background-color: rgba(210, 224, 250, 0.8);
+      border: 1px solid var(--color-title);
+      border-radius: 6px;
+      background-image: none !important;
+
+      i {
+        display: none !important;
+      }
+    }
+
+    .center-box-item-ratio {
+      background-color: rgba(190, 225, 232, 0.8);
+      border-color: #06AED5;
+
+      &.center-box-item-ratio-warning {
+        background-color: rgba(241, 230, 202, 0.8);
+        border-color: #FDCA40;
+      }
+    }
+  }
+
+  .content-container {
+    &::before,
+    &::after {
+      background-image: url("~@/assets/images/theme/minimalism/common/bg-mask.png");
+    }
+  }
+
+  .title {
+    .title-icon {
+      display: none;
+    }
+
+    p {
+      padding: 0;
+    }
+  }
+
+  .panel-left-backtracking {
+    background-color: #f2f2f2;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    background-image: none;
+
+    .backtracking-list {
+      .task-item {
+        border-radius: 6px;
+        background: #E8EDF5;
+
+        .info-item {
+          p {
+            &:first-child {
+              a {
+                &:hover {
+                  color: #2680eb !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .el-loading-mask {
+    background-color: rgba(242, 242, 242, 0.8);
+  }
+}
+
+.country-situation {
+  .situation-content {
+    & > .content-container {
+      height: calc(100% - 30px);
+    }
+
+    .content-left {
+
+      .left-container {
+        height: calc(100% - 34px);
+      }
+
+      .item-content-robot {
+        background-color: #E8EDF5;
+        border: 1px solid #1E2088;
+        border-radius: 6px;
+
+        &::after {
+          display: none !important;
+        }
+      }
+    }
+
+    .content-map {
+      .robot-infoWindow {
+        background-color: rgba(213, 228, 245, 0.8);
+        border: 1px solid #1E2088;
+        border-radius: 6px;
+      }
+    }
+
+    .content-center-bottom {
+      & > div {
+        border-radius: 6px;
+        background-color: #fff;
+
+        .center-bottom-title {
+          width: 100% !important;
+          background-image: none !important;
+          background-color: #D2E0FA;
+          border-radius: 6px 6px 0 0;
+        }
+
+        .center-bottom-content {
+          border-radius: 0 0 6px 6px;
+        }
+      }
+    }
+
+    .content-right {
+      background-color: #F2F2F2;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+
+      .right-title {
+        width: 100%;
+        height: 34px;
+        padding: 0 16px;
+        background-color: var(--bgc-info-title);
+        box-sizing: border-box;
+        text-align: initial;
+
+        p {
+          line-height: 34px;
+        }
+
+        .chart-operating {
+          top: 50%;
+          right: 10px;
+          transform: translate(0, -50%);
+
+          .el-select {
+            .el-input__inner {
+              background-color: #F2F2F2 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.project-situation {
+  .info-weather {
+    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+  }
+
+  .content-map {
+    .robot-infoWindow {
+      background-color: rgba(190, 225, 232, 0.8);
+      border: 1px solid #06aed5;
+      border-radius: 6px;
+
+      &.infoWindow-warning {
+        background-color: rgba(241, 230, 202, 0.8);
+        border-color: #FDCA40;
+      }
+
+      &.infoWindow-error {
+        background-color: rgba(236, 189, 193, 0.8);
+        border-color: #E60012;
+      }
+    }
+  }
+
+  .content-right {
+    & > div {
+      .right-chart {
+        background-color: #F2F2F2;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+
+        .chart-title {
+          width: 100%;
+          height: 34px;
+          line-height: 34px;
+          background-color: #D2E0FA;
+          text-align: left !important;
+          padding: 0 16px;
+        }
+
+        .chart-content {
+          height: calc(100% - 64px);
+        }
+      }
+
+      .CR {
+        .chart-box {
+          height: calc(100% - 34px);
+        }
+
+        .item-arrow {
+          &::after {
+            background-position-y: -20px;
+          }
+        }
+      }
+
+      .POEWE {
+        .chart-content {
+          height: calc(100% - 34px);
+        }
+      }
+    }
+  }
+}
+
+.robot-situation {
+  .info-content-current,
+  .panel-left-info,
+  .panel-left-discern,
+  .right-video {
+    background-color: #f2f2f2;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    background-image: none;
+  }
+
+  .info-content {
+    .info-content-title {
+      height: 100% !important;
+    }
+
+    .info-content-btn {
+      & > div {
+        background-color: #E8EDF5;
+        border-radius: 2px;
+        border: 1px solid #D2E0FA;
+
+        &:hover {
+          background-color: #D2E0FA;
+        }
+
+        &.btn-more {
+          &::after {
+            background-position-y: -22px;
+          }
+        }
+      }
+    }
+
+    .info-content-panel {
+      top: 54px;
+      padding-top: 10px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 0 0 6px 6px;
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+
+      & > div {
+        &:nth-child(even) {
+          background-color: rgba(210, 224, 250, 0.3);
+        }
+      }
+    }
+  }
+
+  .panel-bottom-center {
+    background-color: #f2f2f2;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+
+    .bottom-center-title {
+      height: 34px;
+      line-height: 34px;
+      background-color: #D2E0FA;
+      padding: 0 16px;
+      box-sizing: border-box;
+
+      & > p {
+        padding: 0;
+      }
+
+      .title-operating {
+        i {
+          background-position-y: -34px;
+        }
+      }
+    }
+
+    .bottom-center-content {
+      height: calc(100% - 34px);
+      padding: 5px 16px 0;
+
+      .el-table__header {
+        border-bottom: 2px solid #1E2088;
+      }
+    }
+  }
+
+  .panel-right, .panel-cloud-control {
+    padding-top: 14px !important;
+
+    .right-video {
+      overflow: hidden;
+    }
+  }
+
+  .panel-cloud-control {
+    .control-container {
+      border-radius: 6px;
+      background-color: #F2F2F2;
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+
+      .control-title {
+        &::before {
+          background-color: rgba(30, 32, 136, 0.5);
+        }
+      }
+
+      .control-content {
+        .control-direction {
+          &::before {
+            background-position-y: -42px;
+          }
+
+          i {
+            background-position-y: -30px;
+          }
+        }
+
+        .el-button.control {
+          border-color: #1E2088;
+          border-radius: 2px !important;
+          background-color: #D2E0FA;
+
+          &:focus {
+            background-color: #C3C4D9;
+          }
+        }
+
+        input {
+          border-color: #ccc !important;
+          border-radius: 2px;
+
+          &:focus {
+            border-color: #2680eb !important;
+          }
+        }
+
+        & > div {
+          & > .el-button {
+            background-color: #ADC5EE !important;
+
+            &:focus {
+              background-color: #C3C4D9 !important;
+            }
+          }
+        }
+      }
+    }
+
+    .el-loading-mask {
+      border-radius: 6px;
+    }
+  }
+
+  .discern-title {
+    height: 34px;
+    line-height: 34px;
+    text-align: left !important;
+    padding: 0 16px;
+    background-color: var(--bgc-info-title);
+  }
+
+  .discern-content {
+    height: calc(100% - 34px) !important;
+
+    .panel-title {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 34px;
+
+      .panel-title-left,
+      .panel-title-right {
+        display: none !important;
+      }
+    }
+
+    .discern-content-gas {
+      height: 100% !important;
+    }
+  }
+
+  .discern-little-title {
+    line-height: 34px;
+    left: 100px !important;
+  }
+
+  .video-title {
+    height: 34px;
+    line-height: 34px;
+    background-color: var(--bgc-info-title);
+    box-sizing: initial;
+    font-size: 16px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title-operating {
+      display: flex;
+      align-items: center;
+
+      i {
+        background-position-y: -34px;
+      }
+    }
+  }
+
+  .video-iframe {
+    background-color: #f2f2f2;
+
+    .operation-quality {
+      &.active,
+      &:not(.active):hover {
+        color: #06aed5 !important;
+        border-color: #06aed5 !important;
+        background-color: rgba(6, 174, 213, 0.2);
+      }
+    }
+  }
+
+  .gas-value {
+    & > div:first-child {
+      .gas-item-circle {
+        background-image: url("~@/assets/images/theme/minimalism/robotSituation/bg-gas-item-1.png");
+      }
+    }
+
+    & > div:nth-child(2) {
+      .gas-item-circle {
+        background-image: url("~@/assets/images/theme/minimalism/robotSituation/bg-gas-item-2.png");
+      }
+    }
+
+    & > div:nth-child(3) {
+      .gas-item-circle {
+        background-image: url("~@/assets/images/theme/minimalism/robotSituation/bg-gas-item-3.png");
+      }
+    }
+
+    & > div:nth-child(4) {
+      .gas-item-circle {
+        background-image: url("~@/assets/images/theme/minimalism/robotSituation/bg-gas-item-4.png");
+      }
+    }
+  }
+
+  .gas-item {
+    .circle-rotate-outer,
+    .circle-rotate-inner {
+      display: none;
+    }
+  }
+
+  .gas-item-temperature {
+    .gas-item-circle {
+      background-image: url("~@/assets/images/theme/minimalism/robotSituation/bg-gas-item-5.png");
+    }
+  }
+
+  .gas-item-humidity {
+    .gas-item-circle {
+      background-image: url("~@/assets/images/theme/minimalism/robotSituation/bg-gas-item-6.png");
+    }
+  }
+
+  .discern-content-table {
+    & > div:nth-child(even) {
+      background-color: var(--bgc-popover-even-item);
+    }
+
+    .discern-content-table-item {
+      margin-bottom: 0 !important;
+
+      p {
+        border-right: 1px solid rgba(30, 32, 136, 0.2);
+
+        &:last-child {
+          border: 0;
+        }
+      }
+    }
+  }
+
+  .discern-content-table.table-error {
+    & > div:not(:first-child) {
+      background-color: var(--bgc-error);
+    }
+  }
+
+  .list-item {
+    border-bottom: 1px solid #DDDDDD;
+  }
+
+  .panel-left-backtracking {
+    padding: 0 !important;
+
+    .backtracking-title {
+      width: 100%;
+      background-color: var(--bgc-info-title);
+      height: 34px;
+      line-height: 34px;
+      padding: 0 16px;
+      box-sizing: border-box;
+      position: initial !important;
+      transform: none !important;
+    }
+
+    .backtracking-top {
+      padding: 10px 16px !important;
+    }
+
+    .backtracking-list {
+      padding: 0 16px;
+      box-sizing: border-box;
+      height: calc(100% - 80px) !important;
+
+      .task-item {
+        border-radius: 6px;
+        background: #E8EDF5;
+
+        .info-item {
+          p {
+            &:first-child {
+              a {
+                &:hover {
+                  color: #2680eb !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .center-map {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: #eee;
+  }
+
+  .center-point-filter {
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+
+    .point-filter-title {
+      background-color: #D2E0FA;
+
+      .title-btn-point {
+        i {
+          background-position-y: -34px;
+        }
+      }
+
+      .title-btn-flag {
+        i {
+          background-position-y: -22px;
+        }
+      }
+    }
+
+    .center-point-container {
+      background-color: rgba(255, 255, 255, 0.9);
+
+      .point-container-item {
+        .container-item-label {
+          &::before {
+            background-color: #D2E0FA;
+            bottom: 2px;
+          }
+        }
+
+        .container-item-filters {
+          .filters-item {
+            color: rgba(19, 22, 41, 0.5);
+
+            &.active, &:hover {
+              background-color: #D2E0FA;
+              border-radius: 2px;
+              color: #131629;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .center-inspection-items {
+    border-radius: 0 6px 6px 0;
+    background-color: #f2f2f2;
+
+    .inspection-items-title {
+      height: 34px;
+      line-height: 34px;
+      background-color: #D2E0FA;
+    }
+
+    .inspection-items-content {
+      width: 100%;
+      height: calc(100% - 34px);
+
+      .el-tabs__nav-wrap {
+        position: relative;
+        background-color: #D2E0FA;
+
+        &::after {
+          display: none;
+        }
+
+        .el-tabs__nav-scroll {
+          .el-tabs__active-bar {
+            display: none;
+          }
+
+          .el-tabs__item {
+            margin: 0 5px;
+            padding: 0 5px;
+            color: rgba(30, 32, 136, 0.5);
+            border-radius: 6px 6px 0 0;
+
+            &.is-active {
+              background-color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .top-bar-arrow {
+    text-align: center;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0.3;
+
+    &::after {
+      content: 'SEVNCE SPECIAL ROBOT CONTROL PLATFORM';
+      display: inline-block;
+      color: var(--color-error);
+      font-size: 24px;
+      letter-spacing: 3.5px;
+      font-family: 'RobotoItalic', serif;
+    }
+  }
+
+  .info-warningFrequency {
+    border-radius: 6px;
+  }
+}
+
+.task-details {
+  .details-name {
+    p {
+      &:not(:nth-child(2)) {
+        &:hover {
+          color: #2680eb;
+        }
+      }
+    }
+
+    .details-export {
+      background-position-y: -34px;
+    }
+  }
+
+  .details-info {
+    .el-row {
+      & > div {
+        padding-right: 24px;
+
+        &:nth-child(4n) {
+          padding-right: 0;
+        }
+
+        p {
+          border-left: 1px solid rgba(30, 32, 136, 0.2);
+        }
+      }
+    }
+  }
+
+  .el-collapse {
+    .el-collapse-item__header {
+      border-radius: 6px;
+      background-color: #D2E0FA !important;
+
+      .el-collapse-item__arrow {
+        &::before {
+          background-position-y: -20px;
+        }
+      }
+    }
+
+    .el-collapse-item__content {
+      .el-table {
+        .el-table__cell {
+          &:not(:first-child) {
+            border-left: 1px solid rgba(30, 32, 136, 0.2) !important;
+          }
+        }
+
+        .el-table__row {
+          color: var(--color-default) !important;
+          background-color: rgba(210, 224, 250, 0.3) !important;
+
+          &:nth-child(2n) {
+            background-color: transparent !important;
+          }
+
+          &.mild-warning {
+            background-color: rgba(253, 202, 64, 0.3) !important;
+          }
+
+          &.warning {
+            background-color: rgba(234, 88, 12, 0.3) !important;
+          }
+
+          &.error {
+            background-color: rgba(230, 0, 18, 0.3) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 业务管理-巡检管理-巡检任务
+.inspection-task {
+  .content-panel {
+    .panel-left {
+      background-color: #F2F2F2;
+      box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+
+      .panel-header {
+        background-color: #D2E0FA;
+        padding: 0 16px;
+        box-sizing: border-box;
+
+        p {
+          text-align: left;
+        }
+      }
+
+      .panel-container {
+        .panel-list {
+          .list-content__item {
+            background-color: #E8EDF5;
+            border: 1px solid #1E2088;
+            border-radius: 6px;
+
+            &:hover, &.active {
+              background-color: #DCDCE7;
+            }
+          }
+        }
+      }
+    }
+
+    .panel-right {
+      .btn {
+        background-color: #fff;
+        border-color: #1E2088;
+        border-radius: 6px;
+
+        &:hover {
+          color: #2680EB;
+          border-color: #2680EB;
+        }
+
+        &.btn-icon {
+          &::before {
+            background-position-y: -26px;
+          }
+
+          &.icon-search {
+            &:hover {
+              background-color: rgba(210, 224, 250, 0.8);
+            }
+
+            &::before {
+              background-position-y: -20px;
+            }
+          }
+        }
+
+        &.btn-face {
+          &:hover {
+            background-color: #2680EB;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  // 对话框样式覆盖
+  .dialog-select {
+    // 搜素框
+    .dialog_search {
+      border-color: #1E2088;
+
+      .dialog__search-icon {
+        background-color: #1E2088;
+
+        &::before {
+          background-position-x: 0;
+          background-position-y: -20px;
+        }
+      }
+
+      .dialog__search-input {
+        & > i {
+          border-top-color: #D2E0FA;
+        }
+      }
+    }
+  }
+}
+
+/*自定义日期弹出框；该dom处于最外层；不受限于任何页面*/
+.custom-date-popover {
+  border-radius: 6px;
+  background: #fff !important;
+  border: 1px solid var(--color-popover-border) !important;
+
+  .el-picker-panel [slot=sidebar], .el-picker-panel__sidebar {
+    background-color: var(--bgc-popover-even-item);
+
+    .el-picker-panel__shortcut {
+      &:hover {
+        background: var(--bgc-info-title);
+      }
+    }
+  }
+
+  .el-picker-panel__icon-btn {
+    color: var(--bgc-scrollbar-thumb-hover) !important;
+    font-weight: bold;
+  }
+
+  .el-date-table {
+    .today {
+      span {
+        color: #FDCA40;
+      }
+    }
+
+    .next-month, .prev-month {
+      color: var(--color-popover-item-tag-borer) !important;
+    }
+  }
+
+  .el-picker-panel__body {
+    .el-date-range-picker__time-header {
+      border-color: var(--color-title);
+    }
+
+    .el-input {
+      .el-input__inner {
+        border-color: #ccc;
+        border-radius: 6px;
+
+        &:focus {
+          border-color: #2680eb;
+        }
+
+        &::-webkit-input-placeholder {
+          color: var(--color-default);
+        }
+      }
+    }
+
+    .el-time-panel {
+      border-radius: 6px;
+
+      .el-time-panel__content {
+        &::after,
+        &::before {
+          border-color: #ccc;
+        }
+
+        .el-time-spinner__item {
+          color: rgba(30, 32, 136, 0.5);
+        }
+      }
+
+      .el-time-panel__footer {
+        border-color: #ccc;
+
+        button {
+          color: #2680EB;
+
+          &:not(:disabled) {
+            &:hover {
+              color: rgba(38, 128, 235, 0.5);
+            }
+          }
+        }
+      }
+    }
+
+    .el-picker-panel__content {
+      border-bottom: 1px solid var(--color-title);
+    }
+  }
+
+  .el-picker-panel__footer {
+    button {
+      color: #2680EB;
+
+      &:not(:disabled) {
+        &:hover {
+          color: rgba(38, 128, 235, 0.5);
+
+          &.el-button--default {
+            color: #2680EB;
+            border-color: #2680EB;
+          }
+        }
+
+        &.el-button--default {
+          color: #131629;
+          border-color: #ccc;
+        }
+      }
+    }
+  }
+}
+
+/*二级页面-右侧-图表选择器*/
+.chartSelectPopper {
+  border-radius: 6px !important;
+}
+
+// 表格tooltip
+.el-tooltip__popper {
+  border-radius: 6px;
+}
+
+// 业务管理菜单-树形结构样式重置（斑马纹）
+.business-popover {
+  .el-tree {
+    & > .el-tree-node {
+      background-color: rgba(255, 255, 255, 0.9);
+
+      &:nth-child(2n) {
+        background-color: rgba(210, 224, 250, 0.3);
+      }
+    }
+  }
+}
+
+// 表单通用样式
+.se-form-item {
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+
+  &.se-form-img {
+    padding: 0;
+
+    & > div {
+      flex: 1;
+      width: auto !important;
+      border-right: 1px solid rgba(30, 32, 136, 0.2);
+      padding-bottom: 0;
+
+      &:last-child {
+        border: none;
+      }
+
+      p {
+        background-color: rgba(210, 224, 250, 0.3);
+      }
+
+      .el-image {
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+    }
+
+    .el-image {
+      .img-slot {
+        background-color: #EEF0F6;
+      }
+    }
+  }
+
+  &.se-form-select {
+    .se-form__value {
+      line-height: 28px;
+    }
+  }
+
+  &:nth-child(4n), &:nth-child(4n-1), &:nth-child(6) {
+    background-color: rgba(210, 224, 250, 0.3);
+  }
+
+  &:not(:nth-child(6)) {
+    &:nth-child(2n) {
+      .se-form__name {
+        border-left: 1px solid rgba(30, 32, 136, 0.2);
+      }
+    }
+  }
+
+  .se-form__name {
+    border-right: 1px solid rgba(30, 32, 136, 0.2);
+  }
+
+  .se-form__input {
+    margin: 0 20px;
+    align-self: center;
+    height: calc(100% - 10px);
+
+    &.se-form__decoration {
+      border: 1px solid #24376A;
+      background-color: #fff;
+      box-sizing: border-box;
+
+      & > i {
+        border-top-color: #E60012;
+      }
+    }
+
+
+    .info-value {
+      &.not-full {
+        line-height: 30px;
+      }
+    }
+  }
+
+  input, textarea {
+    &::-webkit-input-placeholder {
+      color: rgba(210, 224, 250, 0.3);
+    }
+  }
+}
+
+// 全局对话框样式覆盖
+.el-dialog {
+  border-radius: 6px;
+  background-color: #F2F2F2;
+
+  .el-dialog__header {
+    background-color: #D2E0FA;
+    line-height: 40px;
+
+    .el-dialog__headerbtn {
+      .el-dialog__close {
+        &::before {
+          background-image: url("~@/assets/images/theme/minimalism/common/icon-close.png");
+        }
+      }
+
+      &:hover {
+        .el-dialog__close {
+          &::before {
+            background-image: url("~@/assets/images/theme/minimalism/common/icon-close-active.png");
+          }
+        }
+      }
+    }
+  }
+}
+
+// 全局输入框placeholder默认文字颜色
+input {
+  &::-webkit-input-placeholder, &:disabled::-webkit-input-placeholder {
+    color: rgba(30, 32, 136, 0.3) !important;
+    font-size: 12px;
+  }
+}
+
+// 全局树结构样式覆盖
+.el-tree {
+  .el-tree-node {
+    &:focus {
+      & > .el-tree-node__content {
+        background-color: var(--bgc-popover-item-hover);
+      }
+    }
+
+    .el-tree-node__content {
+      &:hover {
+        background-color: var(--bgc-popover-item-hover);
+      }
+    }
+  }
+}
+
+// 业务管理-巡检管理-巡检任务
+.items-container {
+  border-radius: 6px;
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+
+  .wrapper {
+    .jwolfcn-list-item {
+      background-color: rgba(255, 255, 255, 0.9) !important;
+
+      &:nth-child(2n) {
+        background-color: rgba(210, 224, 250, 0.3) !important;
+      }
+
+      &:hover {
+        background-color: var(--bgc-popover-item-hover) !important;
+      }
+    }
+  }
+}
+
+// 图片组件-错误提示
+.el-image {
+  .img-slot {
+    background-color: #EEF0F6;
+  }
+}

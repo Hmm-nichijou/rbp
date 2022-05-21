@@ -1,0 +1,135 @@
+$number-font: 'VoyagerGrotesque', 'Microsoft YaHei', 'PingFang SC', serif;
+
+.panel-left-backtracking {
+  width: 362px;
+  padding: 16px;
+  box-sizing: border-box;
+
+  .backtracking-title {
+    font-size: 14px;
+    color: var(--color-title);
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .backtracking-top {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /deep/ .top-date {
+      display: flex;
+      align-items: center;
+
+      i {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-image: url("~@/assets/images/common/icon-date-time.png");
+        background-position-x: -26px;
+        background-position-y: 0;
+      }
+
+      .date-title {
+        color: var(--color-title);
+        font-weight: bold;
+        font-size: 12px;
+        padding-right: 10px;
+      }
+
+      img {
+        width: 16px;
+        height: 16px;
+      }
+
+      /*重置element ui样式*/
+      .el-date-editor {
+        width: 220px;
+        height: auto;
+        background-color: transparent;
+        border: none;
+        font-size: 14px;
+        color: var(--color-default);
+        line-height: normal;
+        padding: 3px 5px;
+
+        .el-input__icon, .el-range__close-icon {
+          display: none;
+        }
+
+        .el-range-input {
+          width: 43%;
+          background: transparent;
+          cursor: pointer;
+          color: var(--color-default);
+          font-family: $number-font, serif;
+        }
+
+        .el-range-separator {
+          width: 10%;
+          color: var(--color-title);
+          line-height: normal;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .top-reset-date {
+      color: var(--color-title);
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      transition: opacity .3s;
+
+      &:hover {
+        opacity: 0.5;
+        transition: opacity .3s;
+      }
+    }
+  }
+
+  .backtracking-list {
+    .item-little-triangle {
+      transform: rotateX(180deg);
+    }
+
+    .item-triangle {
+      bottom: 0;
+      right: 0;
+      transform: rotateX(180deg);
+      background-position-x: calc(-46px * 2);
+    }
+
+    .info-item {
+      p {
+        &:first-child {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+
+          span {
+            flex: 1;
+            display: inline-block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+
+          a {
+            color: var(--color-default);
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

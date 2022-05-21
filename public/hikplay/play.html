@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+    <script>
+        document.write("<link type='text/css' href='play.css?version=" + new Date().getTime() + "' rel='stylesheet' />");
+    </script>
+</head>
+<body>
+<div class="left">
+    <div id="divPlugin" class="plugin"></div>
+</div>
+</body>
+<script src="jquery-1.7.1.min.js"></script>
+<script src="codebase/encryption/AES.js"></script>
+<script src="codebase/encryption/cryptico.min.js"></script>
+<!-- <script src="../codebase/encryption/encryption.js"></script> -->
+<script src="codebase/encryption/crypto-3.1.2.min.js"></script>
+<script id="videonode" src="codebase/webVideoCtrl.js"></script>
+<script src="play.js"></script>
+<script>
+
+$(function () {
+
+    var oPlugin = {
+        iWidth: window.innerWidth,            // plugin width
+        iHeight: window.innerHeight            // plugin height
+    };
+    
+    // 初始化插件参数及插入插件
+    WebVideoCtrl.I_InitPlugin(oPlugin.iWidth, oPlugin.iHeight, {
+        bWndFull: true,//是否支持单窗口双击全屏，默认支持 true:支持 false:不支持
+        iWndowType: 1,
+        cbInitPluginComplete: function () {
+            WebVideoCtrl.I_InsertOBJECTPlugin("divPlugin");
+
+            $(".draw-window").dblclick(function() {
+                //clickFullScreen();
+            });
+        }
+    });
+
+    // 注销
+    $(window).unload(function () {
+        WebVideoCtrl.I_Stop();
+    });
+
+    //
+    var href = location.href;
+    //console.info(href, "video_href");
+    var host = href.match(/host=([0-9a-zA-Z-_:/\.%#]+)/)[1];
+    var port = href.match(/port=([0-9a-zA-Z-_:/\.%#]+)/)[1];
+    var user = href.match(/user=([0-9a-zA-Z-_:/\.%#]+)/)[1];
+    var pwd = href.match(/password=([0-9a-zA-Z-_:/\.%#]+)/)[1];
+    var streamtype = href.match(/streamtype=([0-9a-zA-Z-_:/\.%#]+)/)[1];
+    streamtype = streamtype <= 0 || !streamtype ? 2 : 1;
+
+    // play.js进行登录播放
+    var iProtocol = 1;
+    if (location.href.indexOf("https") > -1) {
+        iProtocol = 2;
+    }
+    var oLiveView = {
+        iProtocol: iProtocol,            // protocol 1：http, 2:https
+        szIP: host,    // protocol ip
+        szPort: port,            // protocol port
+        szUsername: user,     // device username
+        szPassword: pwd, // device password
+        iStreamType: streamtype,          // stream 1：main stream  2：sub-stream  3：third stream  4：transcode stream
+        iChannelID: 1,           // channel no
+        bZeroChannel: false      // zero channel
+    };
+    //clickLogin(host, port, user, pwd, 1);
+    clickLogin(oLiveView.szIP, oLiveView.szPort, oLiveView.szUsername, oLiveView.szPassword, oLiveView.iStreamType, oLiveView.iChannelID, oLiveView.iProtocol);
+
+    // 每30分钟重新预览
+    setInterval(function() {
+        clickStartRealPlay(oLiveView.iStreamType, oLiveView.szIP+ "_" +oLiveView.szPort, "", oLiveView.iChannelID);
+    }, 30 * 60 * 1000);
+
+    $(window).keydown(function(e) {
+        // ESC
+        if (e.keyCode == 27) {
+            //clickStartRealPlay(oLiveView.iStreamType, oLiveView.szIP+ "_" +oLiveView.szPort, "", oLiveView.iChannelID);
+        }
+    });
+});
+
+</script>
+</html>

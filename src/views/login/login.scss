@@ -1,0 +1,350 @@
+$default-color: #2680EB;
+
+.login {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: "Microsoft YaHei", 'PingFang SC', serif;
+  overflow: hidden;
+
+  .login-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .login-box {
+    width: 488px;
+    height: 344px;
+    position: absolute;
+    top: 50%;
+    right: 12%;
+    transform: translate(0, -50%);
+
+    .login-panel {
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 20px;
+      padding: 24px 50px 34px;
+      box-sizing: border-box;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+
+      .login-panel-title {
+        text-align: center;
+        color: $default-color;
+        font-size: 36px;
+        font-family: YouSheBiaoTiHei, serif;
+        padding-bottom: 24px;
+      }
+
+      /deep/ .panel-form {
+        .el-form-item {
+          margin-bottom: 24px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .el-form-item__content {
+            line-height: normal;
+          }
+        }
+
+        .form-item {
+          .el-input {
+            .el-input__inner {
+              height: 30px;
+              line-height: 30px;
+              border-radius: 0;
+              border-left: 0;
+              border-right: 0;
+              border-top: 0;
+              padding-left: 40px;
+            }
+
+            .input-icon {
+              width: 24px;
+              height: 24px;
+              display: inline-block;
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+
+            .icon-userName {
+              background-image: url("~@/assets/images/login/icon-user.png");
+            }
+
+            .icon-password {
+              background-image: url("~@/assets/images/login/icon-password.png");
+            }
+
+            .input-eye {
+              display: inline-block;
+              width: 24px;
+              height: 24px;
+              background-image: url("~@/assets/images/login/icon-psw-hide.png");
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+              background-position: center;
+              cursor: pointer;
+
+              &:hover {
+                background-image: url("~@/assets/images/login/icon-psw-hide-active.png");
+              }
+            }
+
+            .input-eye.show {
+              background-image: url("~@/assets/images/login/icon-psw-display.png");
+
+              &:hover {
+                background-image: url("~@/assets/images/login/icon-psw-display-active.png");
+              }
+            }
+          }
+        }
+
+        .form-operating {
+
+          .el-form-item__content {
+            display: flex;
+            align-items: center;
+
+            .el-checkbox {
+              width: 22px;
+              height: 22px;
+              margin-right: 10px;
+
+              .el-checkbox__input {
+                width: 100%;
+                height: 100%;
+
+                &.is-checked {
+                  .el-checkbox__inner {
+                    &::after {
+                      width: 6px;
+                      height: 14px;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -60%) rotate(45deg) scaleY(1);
+                      border-color: #2680EB;
+                      border-width: 2px;
+                    }
+                  }
+                }
+
+                .el-checkbox__inner {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 2px;
+                  background-color: #fff;
+                }
+              }
+            }
+
+            .el-select {
+              .el-input__inner {
+                width: 150px;
+                height: 24px;
+                line-height: 24px;
+                border-radius: 2px;
+                font-size: 12px;
+              }
+
+              .el-input__suffix {
+                right: 0;
+                background-color: #92BFF5;
+
+                .el-input__icon {
+                  line-height: 24px;
+                  color: #fff;
+                }
+              }
+            }
+
+            .icon-theme {
+              width: 24px;
+              height: 24px;
+              display: inline-block;
+              background-image: url("~@/assets/images/login/icon-theme.png");
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+              background-position: center;
+              cursor: pointer;
+              margin-left: auto;
+
+              &:hover, &.active {
+                background-image: url("~@/assets/images/login/icon-theme-active.png");
+              }
+            }
+          }
+        }
+
+        .btn {
+          width: 100%;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          font-weight: 400;
+          color: #fff;
+          background-color: #2680EB;
+          box-shadow: 0 3px 10px rgba(13, 104, 212, 0.3);
+          cursor: pointer;
+          transition: all .3s ease;
+          border-radius: 50px;
+          font-size: 24px;
+          user-select: none;
+          padding-top: 0;
+          padding-bottom: 0;
+
+          &:hover {
+            background-color: #0D6DDE;
+            box-shadow: 0 6px 16px rgba(38, 128, 235, 0.3);
+            transition: all .3s ease;
+          }
+        }
+      }
+
+      .panel-select-theme {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+      }
+    }
+
+    .login-select-theme {
+      width: 100%;
+      padding: 54px 50px 24px;
+      box-sizing: border-box;
+      background-color: #fff;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border-radius: 20px;
+      z-index: 1;
+      transition: bottom .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .theme-item {
+        width: 80px;
+        height: 80px;
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        margin-top: 20px;
+
+        &:hover img {
+          transform: scale(1.5);
+          transition: transform 1s ease;
+        }
+
+        &.active p {
+          background-color: #2680EB;
+          transition: background-color .3s ease;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 1s ease;
+        }
+
+        p {
+          width: 100%;
+          height: 20px;
+          line-height: 20px;
+          text-align: center;
+          font-size: 14px;
+          color: #fff;
+          background-color: rgba(0, 0, 0, 0.3);
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          font-family: 'ChuanQiTeZhanTi', serif;
+          transition: background-color .3s ease;
+        }
+
+        .theme-tag {
+          width: 34px;
+          height: 18px;
+          line-height: 18px;
+          text-align: center;
+          border-radius: 0 6px 0 6px;
+          font-size: 12px;
+          color: #fff;
+          background-color: rgba(38, 128, 235, 0.5);
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  .login-footer {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 12px;
+    padding: 0 24px;
+    box-sizing: border-box;
+
+    .footer-logo {
+      width: 318px;
+      height: 30px;
+    }
+
+    .footer-copyright {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        padding-right: 10px;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+
+      .footer-beian {
+        display: flex;
+        align-items: center;
+
+        span {
+          display: flex;
+          align-items: center;
+
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

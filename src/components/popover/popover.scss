@@ -1,0 +1,36 @@
+.popover {
+  color: var(--color-popover-font);
+  border: 1px solid var(--color-popover-border);
+  background: var(--bgc-popover);
+  box-sizing: border-box;
+  z-index: 999;
+  overflow-x: hidden;
+
+  ul {
+    list-style: none;
+    font-size: 12px;
+
+    li {
+      & > div:first-child {
+        height: 28px;
+        line-height: 28px;
+        cursor: pointer;
+        padding: 0 10px;
+        box-sizing: border-box;
+
+        &:hover {
+          background: var(--bgc-popover-item-hover) !important;
+          color: var(--color-title);
+        }
+      }
+
+      &.active {
+        color: var(--color-popover-font-active);
+      }
+
+      &:nth-child(even) > div:first-child {
+        background-color: var(--bgc-popover-even-item);
+      }
+    }
+  }
+}

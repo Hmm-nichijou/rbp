@@ -1,0 +1,24 @@
+.inspection-task {
+  .task-content {
+    display: flex;
+    flex-direction: column;
+
+    .content-info {
+      flex-shrink: 0;
+
+      .info-breadcrumbs {
+        .breadcrumb-tabs {
+          .tabs-navbar {
+            padding-left: 100px;
+          }
+        }
+      }
+    }
+
+    .content-panel {
+      .panel-right {
+        flex: 1;
+      }
+    }
+  }
+}

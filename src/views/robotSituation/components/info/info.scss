@@ -1,0 +1,29 @@
+$number-font: 'VoyagerGrotesque', 'Microsoft YaHei', 'PingFang SC', serif;
+
+.info {
+  width: 492px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 20px;
+
+  & > div {
+    width: 84px;
+
+    p {
+      font-size: 12px;
+
+      &:first-child {
+        color: var(--color-info-label);
+        padding-bottom: 6px;
+      }
+
+      &:last-child {
+        color: var(--color-default);
+        font-family: $number-font;
+        line-height: 17px;
+      }
+    }
+  }
+}
